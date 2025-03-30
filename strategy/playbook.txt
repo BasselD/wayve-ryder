@@ -1,0 +1,56 @@
+# Rami’s Nasdaq Futures Scalping Playbook
+
+---
+
+## 🕒 Trading Time Window
+- **Session:** Morning only (9:30 AM – 11:00 AM ET)  
+- ❗️No trades are allowed outside this time window.
+
+---
+
+## ⚙️ Risk Rules
+- Max trades per day: **3–4**
+- Stop trading after **2 consecutive losses**
+- Stop loss: **Dynamic**, based on structure or volatility
+- Take profit: Depends on the strategy, usually **1R to 1.5R**
+
+---
+
+## 🎯 Trade Entry Criteria
+Only take trades when:
+- ✅ Candle closes above/below key level
+- ✅ Reclaim of key level after a sweep
+- ✅ Order flow confirms (volume spike, absorption, delta shift)
+
+---
+
+## 📌 Setup #1 – Opening Range Reclaim Trap
+- **Time:** 9:30 – 10:00 AM  
+- Price breaks opening range, reclaims back inside with confirmation  
+- **Entry:** Candle close back inside + volume  
+- **Stop:** Beyond sweep wick  
+- **Target:** Opposite range side or 1.5R
+
+---
+
+## 📌 Setup #2 – Liquidity Sweep + Reclaim (ICT-style)
+- **Time:** 9:30 – 10:30 AM  
+- Price sweeps below/above key level, reclaims quickly  
+- **Entry:** Close back in + volume confirmation  
+- **Stop:** Below sweep wick  
+- **Target:** VWAP, 1.5R, or next liquidity level
+
+---
+
+## 📌 Setup #3 – VWAP Retest Bounce
+- **Time:** After 10:00 AM  
+- Trending market pulls back to VWAP and holds  
+- **Entry:** Reclaim + bounce candle confirms  
+- **Stop:** Below VWAP or last pullback  
+- **Target:** Prior high/low, 1–1.5R
+
+---
+
+## ✅ Daily Checklist
+- [ ] Mark opening range (9:30–9:35)
+- [ ] Identify
