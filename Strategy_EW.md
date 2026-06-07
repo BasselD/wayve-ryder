@@ -279,7 +279,7 @@ The full LONG (Wave 3) and SHORT (Wave C) pre-trade checklists live in **[Checkl
 | v1–v6 | Early iterations — confirmation filters, two-target system, RSI/vol/regime tuning (WR 7–28%, all net-negative to marginal). See git history for detail. | — | — | — |
 | v7 | **Breakthrough** — Fib anchor fixed (C point), trend filter at entry bar | **52.7%** | **+6.1%** | **3.58** |
 | v8 | Wave C short scanner added | Pending | Pending | Pending |
-| **MTF v1** | Multi-timeframe cascade: daily structure + 4H precision entry | 41.0% | -1.1% | 1.17 |
+| **MTF v1.1** | Multi-timeframe cascade (daily structure + 4H entry), 15 tickers | 45.1% | +0.02% | 1.56 |
 
 ### v7 Long-Only Results by Ticker — 2020–2026
 
@@ -313,15 +313,23 @@ The full LONG (Wave 3) and SHORT (Wave C) pre-trade checklists live in **[Checkl
 
 **Architecture**: Daily scanner validates W1–W2 structure → 4H sub-scanner times entry inside the daily fib zone. Entry fires on the 4H reversal bar (not the daily close), so entry sits closer to the W2 bottom. Targets anchored to the 4H W2 low. Config lives in `Backtest_MTF.py` — see that file for exact parameter values.
 
-**First run — 2023–2026, 12 tickers, 39 trades:** WR 41% | E −1.1%/trade | PF 1.17 | CAGR +2.0% | MaxDD −61% (combined). NVDA carries it (60% WR, +69% CAGR); PLTR/TSLA/AAPL/GOOGL/NFLX net positive-to-flat.
+**Run history (2023–2026, ~2.9yr 4H window):**
+
+| Run | Tickers | Trades | WR | Expectancy | PF | CAGR | MaxDD |
+|---|---|---|---|---|---|---|---|
+| v1.0 | 12 | 39 | 41.0% | −1.1% | 1.17 | +2.0% | −61% |
+| **v1.1** | **15** (+SHOP, MU, DKNG) | **51** | **45.1%** | **+0.02%** | **1.56** | **+12.35%** | **−61%** |
+
+v1.1 added 3 tickers from a 12-name candidate screen ([screen_candidates.py](screen_candidates.py)) — flipped expectancy positive and lifted PF/CAGR. NVDA still carries the book.
 
 **Validated findings (in-sample — pending walk-forward):**
 - **MAX_RR ≤ 2.5 cap helps.** High R:R = stop (W1 origin) sits too far below entry = loose setup. Capping lifted WR 37%→41%.
-- **Loosening daily filters BACKFIRES.** Removing the volume + MA-slope filters tripled trades (39→113) but blew MaxDD to −75% and turned expectancy negative. The daily filters are protecting the system, not just throttling it. **Do not loosen to chase trade count.**
-- **CRM, AMD, META: 0 wins across every config.** AMD was 61.5% WR in v7 daily — its edge is daily-only; 4H timing destroys it. Retained in universe per decision; flagged for review.
-- **Trade count is constrained by breadth + history, not filter tightness.** Levers to grow sample: more clean-EW tickers, longer history (extend to 2018 to capture the 2022 bear).
+- **Loosening daily filters BACKFIRES.** Removing the volume + MA-slope filters tripled trades (39→113) but blew MaxDD to −75% and turned expectancy negative. The daily filters protect the system. **Do not loosen to chase trade count.**
+- **Grow universe, not filters.** Candidate screen hit rate was 5/12 (~42%) — the edge is real but selective. Added SHOP (clean target-driven wins), MU (legit, semis); DKNG added as **watch** — its profit is timeout/drift-driven, not target hits, so it's likely regime-dependent.
+- **CRM, AMD, META: 0 wins across every config.** AMD was 61.5% WR in v7 daily — its edge is daily-only; 4H timing destroys it. Retained per decision; flagged for review.
+- **Data ceiling**: yfinance 1H history caps at ~730 days, so 4H can't reach the 2022 bear. Sample grows via breadth only.
 
-> ⚠️ **Small sample** — 1–7 trades/ticker, 39 combined. Below high-confidence threshold. Walk-forward validation required before any capital.
+> ⚠️ **Two live risks**: (1) Expectancy +0.02% is barely positive — fragile. (2) MaxDD −61% / Calmar 0.2 is the real unsolved problem — universe expansion didn't touch tail risk. **Drawdown control is the next priority.** Walk-forward validation still required before any capital.
 
 ---
 

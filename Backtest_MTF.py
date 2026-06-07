@@ -27,7 +27,9 @@ warnings.filterwarnings("ignore")
 # ── DAILY CONFIG (structure identification) ───────────────────────────────────
 TICKERS              = ["NVDA", "GOOGL", "TSLA", "AAPL", "AMD",
                         "MSFT", "AMZN", "META", "SMCI", "PLTR",
-                        "CRM", "NFLX"]
+                        "CRM", "NFLX",
+                        # Added v1.1 after candidate screen (screen_candidates.py):
+                        "SHOP", "MU", "DKNG"]  # DKNG = watch: profit is timeout/drift-driven
 REGIME_TICKER        = "SPY"
 DATA_DIR             = "./data"
 RESULTS_DIR          = "./results/mtf"

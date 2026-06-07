@@ -11,7 +11,8 @@ import os
 # ── CONFIG ──────────────────────────────────────────────────────────────────
 TICKERS = ["SPY", "NVDA", "GOOGL", "TSLA", "AAPL", "AMD",
            "MSFT", "AMZN", "META", "SMCI", "PLTR",
-           "CRM", "NFLX"]
+           "CRM", "NFLX",
+           "SHOP", "MU", "DKNG"]  # added v1.1 after candidate screen
 START_DATE = "2020-01-01"
 END_DATE   = "2026-06-06"
 DATA_DIR   = "./data"
