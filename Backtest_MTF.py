@@ -26,10 +26,10 @@ warnings.filterwarnings("ignore")
 
 # ── DAILY CONFIG (structure identification) ───────────────────────────────────
 TICKERS              = ["NVDA", "GOOGL", "TSLA", "AAPL", "AMD",
-                        "MSFT", "AMZN", "META", "SMCI", "PLTR",
-                        "CRM", "NFLX",
+                        "MSFT", "AMZN", "SMCI", "PLTR"
+                        , "NFLX",
                         "SHOP", "MU", "DKNG"] 
-REGIME_TICKER        = "SPY"
+REGIME_TICKER        = "QQQ"
 DATA_DIR             = "./data"
 RESULTS_DIR          = "./results/mtf"
 

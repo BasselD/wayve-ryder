@@ -19,7 +19,7 @@ warnings.filterwarnings("ignore")
 TICKERS           = ["NVDA", "GOOGL", "TSLA", "AAPL", "AMD",
                      "MSFT", "AMZN", "META", "SMCI", "PLTR",
                      "CRM", "NFLX"]
-REGIME_TICKER     = "SPY"
+REGIME_TICKER     = "QQQ"
 DATA_DIR          = "./data"
 RESULTS_DIR       = "./results"
 SWING_LOOKBACK    = 10
