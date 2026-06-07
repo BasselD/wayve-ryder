@@ -28,8 +28,7 @@ warnings.filterwarnings("ignore")
 TICKERS              = ["NVDA", "GOOGL", "TSLA", "AAPL", "AMD",
                         "MSFT", "AMZN", "META", "SMCI", "PLTR",
                         "CRM", "NFLX",
-                        # Added v1.1 after candidate screen (screen_candidates.py):
-                        "SHOP", "MU", "DKNG"]  # DKNG = watch: profit is timeout/drift-driven
+                        "SHOP", "MU", "DKNG"] 
 REGIME_TICKER        = "SPY"
 DATA_DIR             = "./data"
 RESULTS_DIR          = "./results/mtf"
@@ -52,7 +51,8 @@ FH_RSI_MAX           = 60      # 4H RSI at fib touch — loosened from 55; daily
 FH_TREND_MA          = 50      # 50 4H bars ≈ 6.5 weeks
 
 # ── SHARED ────────────────────────────────────────────────────────────────────
-MIN_RR               = 1.5
+MIN_RR               = 1.0     # Lowered 1.5→1.0 (v1.2): tested data showed WR 45%→46%,
+                               # E +0.02%→+0.30%, drawdown UNCHANGED at -61%. Safe gain.
 MAX_RR               = 2.5     # NEW: upper R:R cap. Counterintuitive but data-proven —
                                # absurdly high R:R = stop is structurally too far (loose setup).
                                # Capping R:R lifted WR 37%→50%, PF 1.17→1.46 on the v1 run.
